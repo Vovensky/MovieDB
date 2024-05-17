@@ -6,10 +6,12 @@ import './DataLayOut.css'
 import '../FilmsList/FilmsList.css'
 import RatedMovies from '../ratedMovies/RatedMovies'
 import Context from '../Context'
+import ErrorMessage from '../Messages/ErrorMessage'
 
 class DataLayout extends React.Component {
   constructor(props) {
     super(props)
+    this.isOffline = props.parameters.isOffline
     this.state = {
       movieCash: {},
     }
@@ -44,6 +46,9 @@ class DataLayout extends React.Component {
   makeContextObject = () => ({ ...this.props, ...this.state })
 
   render() {
+    const { parameters } = this.props
+    const { isOffline } = parameters
+    let html
     const items = [
       {
         label: 'Search',
@@ -56,13 +61,18 @@ class DataLayout extends React.Component {
         children: <RatedMovies addMovieCash={this.addMovieCash} />,
       },
     ]
-    return (
-      <div>
-        <Context.Provider value={this.makeContextObject()}>
-          <Tabs items={items} className="tabs-size" onChange={this.changeMode} />
-        </Context.Provider>
-      </div>
-    )
+    if (isOffline) {
+      html = ErrorMessage('Нет сети', 'warning')
+    } else {
+      html = (
+        <div>
+          <Context.Provider value={this.makeContextObject()}>
+            <Tabs items={items} className="tabs-size" onChange={this.changeMode} />
+          </Context.Provider>
+        </div>
+      )
+    }
+    return html
   }
 }
 
