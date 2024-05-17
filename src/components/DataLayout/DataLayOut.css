@@ -1,0 +1,14 @@
+.dataLayout-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.dataLayout-pagination {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ant-tabs >.ant-tabs-nav .ant-tabs-nav-wrap {
+    justify-content: center
+}

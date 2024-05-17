@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Rail';
+    font-style: normal;
+    font-size: 12px;
+    font-weight: 400;
+    src: url("./vivlRail.otf")
+}
+
+@font-face {
+    font-family: "Noto";
+    src: url("./NotoSans_Condensed-Regular.ttf");
+    font-size: 18px;
+}

@@ -1,0 +1,113 @@
+.movieCard {
+    margin-bottom: 15px;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    display: grid;
+    grid-template-areas: "moviePoster movieTitleContainer movieRating"
+                        "moviePoster movieDate movieDate"
+                        "moviePoster movieGenres movieGenres"
+                        "moviePoster movieDescription movieDescription"
+                        "moviePoster movieRate movieRate";
+    grid-template-columns: 18fr 20fr 3fr;
+    grid-template-rows: 45fr 25fr 25fr 125fr 50fr;
+    padding: 0 !important
+}
+
+.moviePoster {
+    grid-area: moviePoster;
+}
+
+.moviePoster__image {
+    height: 280px !important;
+    width: 185px !important;
+}
+
+.movieTitle-container {
+    display:flex;
+    grid-area: movieTitleContainer;
+    width: 200px;
+    overflow: hidden;
+    align-items: center;
+}
+
+.ant-typography.movieTitle {
+    grid-area: movieTitle;
+    margin: 0;
+    margin-right: 10px;
+    font-size: 24px;
+    align-self: center;
+    height: 30px;
+    overflow: hidden;
+    min-width: 200px;
+    text-wrap: nowrap;
+}
+
+.contentOverflow {
+    animation-name: contentOverflow;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 10s;
+}
+
+.movieGenres__tags {
+    display: flex;
+    gap:5px;
+    flex-wrap: nowrap
+}
+
+.movieRating {
+    grid-area: movieRating;
+    border-radius: 50%;
+    border: 2px solid red;
+    text-align: center;
+    align-self: baseline;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 5px;
+    top: 5px;
+
+}
+
+.movieDate {
+    grid-area: movieDate
+}
+
+.movieGenres {
+    grid-area: movieGenres;
+    display: flex;
+    width: 230px;
+    gap: 5px;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    margin-top: 5px;
+    height:30px;
+}
+
+.movieDescription {
+    grid-area: movieDescription;
+    overflow: hidden;
+    width: 230px;
+    height: 130px;
+
+}
+
+.movieRate {
+    grid-area: movieRate;
+    align-self: center
+}
+
+
+@keyframes contentOverflow {
+    from {
+        margin-left: 0
+    }
+
+    to {
+        margin-left: -100%
+    }
+}
